@@ -21,9 +21,11 @@
         ];
       };
 
-      packages.${system}.iso =
-        self.nixosConfigurations.iso.config.system.build.isoImage;
-
-      packages.${system}.default = self.packages.${system}.iso;
+      packages.${system} = let
+        iso = self.nixosConfigurations.iso.config.system.build.isoImage;
+      in {
+        inherit iso;
+        default = iso;
+      };
     };
 }
