@@ -19,8 +19,4 @@
     "console=ttyS0,115200n8"
   ];
 
-  boot.loader.grub = {
-    enable = true;
-    device = "/dev/sda";
-  };
 }
